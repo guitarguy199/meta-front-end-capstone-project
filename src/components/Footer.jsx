@@ -1,8 +1,9 @@
 import Logo from "../assets/Logo.svg";
+import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className="footer">
       <img src={Logo} alt="little lemon logo"></img>
       <ul>
         <li>Doormat Navigation</li>

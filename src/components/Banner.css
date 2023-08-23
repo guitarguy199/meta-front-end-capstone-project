@@ -1,0 +1,56 @@
+.banner {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, 100px);
+  background-color: #495e57;
+}
+
+.banner-text {
+  grid-column-start: 5;
+  grid-column-end: 8;
+  grid-row-start: 2;
+}
+
+.heading {
+  font-family: "Markazi Text";
+  font-weight: 500;
+  font-size: 64px;
+  color: #f4ce14;
+  margin: 0;
+}
+
+.subheading {
+  font-family: "Markazi Text";
+  font-weight: 400;
+  font-size: 40px;
+  color: white;
+  margin: 0;
+}
+
+.description {
+  font-family: "Karla";
+  font-weight: 300;
+  color: white;
+}
+
+.photo-box {
+  grid-column-start: 9;
+  z-index: 1;
+  grid-row-start: 2;
+  /* grid-row-end: 3; */
+}
+
+.photo {
+  width: 300px;
+  height: 400px;
+  border-radius: 16px;
+}
+
+.reserve-button {
+  font-family: "Karla";
+  font-weight: 800;
+  background-color: #f4ce14;
+  padding: 10px;
+  border-radius: 16px;
+  border-color: #f4ce14;
+}

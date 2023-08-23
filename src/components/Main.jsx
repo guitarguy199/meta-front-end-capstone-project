@@ -1,5 +1,13 @@
+import Banner from "./Banner";
+import Menu from "./Menu";
+
 const Main = () => {
-  return <main>Main Body</main>;
+  return (
+    <main>
+      <Banner />
+      <Menu />
+    </main>
+  );
 };
 
 export default Main;
