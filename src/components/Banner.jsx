@@ -4,7 +4,7 @@ import Photo from "../assets/restauranfood.jpg";
 const Banner = () => {
   return (
     <section className="banner">
-      <div className="banner-text">
+      <div className="container text-box">
         <h1 className="heading">Little Lemon</h1>
         <h2 className="subheading">Chicago</h2>
         <p className="description">
