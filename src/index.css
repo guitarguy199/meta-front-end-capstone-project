@@ -1,26 +1,81 @@
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Karla:wght@200;300;400;500;600;700;800&family=Markazi+Text:wght@400;500;600;700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+}
 
 body {
   background-color: grey;
-  margin: 0;
+  font-family: "Karla", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495E57;
+}
+
+header {
+  border-bottom: 1rem solid #495E57;
+}
+
+a {
+  text-decoration: none;
+  color: #495E57;
+}
+
+h1, h2 {
+  line-height: 1;
+  font-family: "Markazi Text";
+  font-weight: normal;
 }
 
 h1 {
-  font-family: "Markazi Text";
-  font-weight: 500;
-  font-size: 40px;
+  font-size: 3.5rem;
 }
 
 h2 {
-  font-family: "Markazi Text";
-  font-weight: 500;
-  font-size: 60px;
+  font-size: 2.5rem;
 }
 
-p {
-  font-family: "Karla";
-  font-weight: 400;
-  font-size: 16px;
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+.button-primary {
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  background-color: #F4CE14;
+  color: #495E57;
+  font-weight: bold;
+  border: 0.1875rem solid #F4CE14;
+  transition: background, border, color 0.5s;
+}
+
+.button-primary:hover, .button-primary:focus {
+  background-color: #495E57;
+  border-color: #495E57;
+  color: #FFFFFF;
+}
+
+main > section {
+  margin-bottom: 5rem;
+}
+
+.grid {
+  display: grid;
+}
+.container {
+  max-width: 61rem;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
 }

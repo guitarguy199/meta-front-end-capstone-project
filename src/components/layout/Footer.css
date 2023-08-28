@@ -1,0 +1,13 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  margin: 20px;
+  background: #fff;
+  padding: 2em;
+}
+
+.footer-list {
+
+}
+
