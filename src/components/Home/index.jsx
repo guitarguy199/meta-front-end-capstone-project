@@ -1,11 +1,11 @@
 import Banner from './Banner';
-import Menu from "./Menu";
+import Specials from "./Specials";
 
 const Home = () => {
   return (
    <>
     <Banner />
-    <Menu />
+    <Specials />
    </>
   );
 };

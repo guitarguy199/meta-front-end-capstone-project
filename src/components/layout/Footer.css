@@ -1,13 +1,16 @@
 .footer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: center;
-  margin: 20px;
-  background: #fff;
-  padding: 2em;
+  background-color: #FFF;
+  color: #495E57;
 }
 
-.footer-list {
+.footer .container {
+  grid-template-columns: repeat(4, auto);
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
 
+.footer-logo {
+  grid-column: 1;
+  min-width: 6rem;
 }
 

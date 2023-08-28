@@ -1,12 +1,13 @@
-import Logo from "../../assets/Logo.svg";
+import Logo from "./assets/Logo.svg";
 import "./Footer.css";
 
 const Footer = () => {
   return (
     <footer className="footer">
-      <img src={Logo} alt="little lemon logo" className="logo"></img>
+      <div className="container grid">
+      <img src={Logo} alt="little lemon logo" className="footer-logo"></img>
       <ul className="footer-list">
-        <li><strong>Doormat Navigation</strong></li>
+        <li><strong>SITEMAP</strong></li>
         <li>Home</li>
         <li>About</li>
         <li>Menu</li>
@@ -15,18 +16,19 @@ const Footer = () => {
         <li>Contact</li>
       </ul>
       <ul className="footer-list">
-        <li><strong>Contact</strong></li>
+        <li><strong>CONTACT</strong></li>
         <li>Address</li>
         <li>Phone</li>
         <li>Email</li>
       </ul>
       <ul>
-        <li><strong>Social Media Links</strong></li>
+        <li><strong>SOCIAL MEDIA</strong></li>
         <li>Facebook</li>
         <li>Instagram</li>
         <li>X</li>
         <li>Yelp</li>
       </ul>
+      </div>
     </footer>
   );
 };
