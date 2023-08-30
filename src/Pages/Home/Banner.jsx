@@ -1,5 +1,5 @@
 import "./Banner.css";
-import RestaurantFoodImage from "../../assets/restauranfood.jpg";
+import RestaurantFoodImage from "./assets/restauranfood.jpg";
 
 const Banner = () => {
   return (

@@ -1,6 +1,6 @@
 .footer {
-  background-color: #FFF;
-  color: #495E57;
+  background-color: #495E57;
+  color: #fff;
 }
 
 .footer .container {
@@ -11,6 +11,52 @@
 
 .footer-logo {
   grid-column: 1;
-  min-width: 6rem;
+  max-width: 6rem;
+  margin-top: 2rem;
 }
 
+.footer-list {
+  margin-top: 2rem;
+}
+
+.footer-list h4 {
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  letter-spacing: 0.15rem;
+}
+
+.footer-list a {
+  color: #fff;
+}
+
+.footer-contact svg {
+  margin-right: 0.625rem;
+}
+
+.footer-socials a {
+  padding-right: 1rem;
+}
+
+.footer-sitemap a:hover,
+.footer-sitemap a:focus {
+  color: #F4ce14;
+}
+
+@media(max-width: 920px) {
+  .footer .container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+@media(max-width: 562px) {
+  .footer.container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
+  .footer-list {
+    grid-column: 1;
+    margin-top: 2rem;
+  }
+
+}
