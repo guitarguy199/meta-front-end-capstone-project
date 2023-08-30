@@ -1,0 +1,46 @@
+.review-card {
+    /* grid-template-columns: repeat(2, 50px); */
+    min-height: 5rem;
+    display: flex;
+    grid-column: auto;
+    flex-direction: row;
+    border-radius: 1rem;
+    background: #fff;
+    /* gap: 3.1rem; */
+    align-items: center;
+    justify-content: start;
+    /* padding: 3rem; */
+    height: 13rem;
+    width: 13rem;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.leading-row {
+    grid-column: 1;
+    padding-left: 0.5rem;
+    align-content: center;
+}
+.leading-row img {
+    max-height: 5rem;
+    max-width: 5rem;
+    object-fit: contain;
+    margin-bottom: 1.5rem;
+}
+
+.leading-row h2 {
+    margin-bottom: 1.175rem;
+    font-size: 2rem;
+}
+
+.trailing-row {
+    /* padding-left: 2rem; */
+    grid-column: 2;
+    align-items: center;
+}
+
+@media(max-width: 960px) {
+    .review-card {
+        grid-row: auto;
+    }
+}
