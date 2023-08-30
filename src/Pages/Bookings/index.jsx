@@ -1,7 +1,10 @@
+import BookingForm from "./BookingForm";
+import './index.css';
+
 const Bookings = () => {
     return (
         <>
-            <h1>Bookings</h1>
+            <BookingForm />
         </>
     )
 }
