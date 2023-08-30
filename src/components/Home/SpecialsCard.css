@@ -18,7 +18,7 @@
 }
 
 .specials-card-heading h3 {
-
+    font-size: 1.1rem;
 }
 
 .specials-card-heading span {
@@ -27,7 +27,7 @@
     font-size: 1.2rem;
 }
 
-.specials-img {
+.specials-img img {
     width: 100%;
     height: 12rem;
     object-fit: cover;
@@ -61,8 +61,5 @@
 @media(max-width: 960px) {
     .specials-card {
         grid-row: auto;
-    }
-    .specials-card-heading {
-        margin-top: 4rem;
     }
 }

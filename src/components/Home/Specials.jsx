@@ -33,7 +33,7 @@ const Specials = () => {
         <h2>This week specials!</h2>
         <button className="button-primary">Online Menu</button>
       </div>
-        {specials.map((special, index) => 
+        {specials.map((special, index) =>
             <SpecialsCard key={index} meals={special} />
         )
         }
