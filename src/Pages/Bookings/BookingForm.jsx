@@ -1,12 +1,12 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const BookingForm = () => {
-    const [date, setDate] = useState('12/20/1994');
-    const [time, setTime] = useState('');
+const BookingForm = ( { availableTimes }) => {
+    const defaultTime = availableTimes[0];
+    const [date, setDate] = useState('');
+    const [time, setTime] = useState(defaultTime);
     const [numGuests, setNumGuests] = useState('');
     const [occasion, setOccasion] = useState('');
-
-    const availableTimes = ["12:30", "1:30", "2:45", "5:30", "8:45"];
     const occasions = ["none", "birthday", "anniversary"];
 
     const handleSubmit = (e) => {
@@ -70,7 +70,7 @@ const BookingForm = () => {
                         )}
                     </select>
                 </div>
-                <button type="submit" disabled={!getIsFormValid()}>Submit</button>
+                <button type="submit" className="button-primary" disabled={!getIsFormValid()}>Submit</button>
             </fieldset>
         </form>
 
