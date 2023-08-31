@@ -78,7 +78,7 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
                     required={true}
                     onChange={handleTimeChange}>
                         {availableTimes.map(times => 
-                        <option key={times}>
+                        <option data-testid="booking-time-option" key={times}>
                             {times}
                         </option>
                         )}
