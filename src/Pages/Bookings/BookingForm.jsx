@@ -1,14 +1,25 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import FormField from "./FormField";
 
 const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
     // const defaultTime = availableTimes[0];
-    const [date, setDate] = useState('');
+    const minimumDate = new Date().toISOString().split('T')[0];
+    const minimumNumGuests = 1;
+    const maximumNumGuests = 16;
+    const [date, setDate] = useState(minimumDate);
     const [time, setTime] = useState("12:00")
-    const [numGuests, setNumGuests] = useState('');
+    const [numGuests, setNumGuests] = useState(minimumNumGuests);
     const [occasion, setOccasion] = useState('');
-    const occasions = ["none", "birthday", "anniversary"];
-    const options = availableTimes.map(time => <option key={time}>{time}</option>)
+    const occasions = ["None", "Birthday", "Anniversary", "Date Night"];
+
+    const invalidDateErrorMessage = 'Please choose a valid date';
+    const invalidTimeErrorMessage = "Please choose an available time slot";
+    const invalidNumGuestsErrorMessage = "Please enter the number of guests dining with us";
+
+    const isDateValid = () => date !== '';
+    const isTimeValid = () => time !== '';
+    const isNumGuestsValid = () => numGuests !== '';
 
     const handleDateChange = (e) => {
         setDate(e.target.value);
@@ -22,68 +33,96 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
         e.preventDefault();
         alert("Move to confirmation page");
         console.log("Success!");
-        clearForm();
+        // clearForm();
     }
 
-    const clearForm = () => {
-        setDate('');
-        setTime('');
-        setNumGuests('');
-        setOccasion('');
-    }
+    // const clearForm = () => {
+    //     setDate('');
+    //     setTime('');
+    //     setNumGuests('');
+    //     setOccasion('');
+    // }
 
-    // const getIsFormValid = () => {
-    //     return date && availableTimes && numGuests !== '';
-    // };
+    const getIsFormValid = () => {
+        return date && availableTimes && numGuests !== '';
+    };
 
     return(
-        <section className="booking-form">
-        {/* <div className="grid container"> */}
         <form onSubmit={handleSubmit}>
-            <fieldset>
-                <h2>Reserve a Table</h2>
-                <div className="Field">
-                    <label>Select Date<sup>*</sup></label>
-                    <input
-                        value={date}
-                        onChange={handleDateChange}
-                        placeholder="Date"
-                    ></input>
-                </div>
-                <div className="Field">
-                    <label>Select Time<sup>*</sup></label>
-                    <select value={time} onChange={handleTimeChange}>
-                        {/* {availableTimes.map((time) => 
-                            <option key={time}>{time}</option>
-                        )} */}
-                        {options}
-                    </select>
-                </div>
-                <div className="Field">
-                    <label>Number of Guests<sup>*</sup></label>
+                <FormField 
+                label="Date"
+                htmlFor="booking-date"
+                hasError={!isDateValid()}
+                errorMessage={invalidDateErrorMessage}
+                >
                     <input 
-                    value={numGuests}
-                    onChange={(e) =>
-                        setNumGuests(e.target.value)
-                        // console.log(numGuests)
-                }></input>
-                </div>
-                <div className="Field">
-                    <label>Special Occasion?</label>
-                    <select value={occasion} onChange={(e) => setOccasion(e.target.value)}>
-                    {occasions.map((occasion, index) => 
-                            <option value={occasion} key={index}>{occasion}</option>
+                        type="date"
+                        id="booking-date"
+                        name="booking-date"
+                        min={minimumDate}
+                        value={date}
+                        required="true"
+                        onChange={handleDateChange}
+                    />
+                </FormField>
+                <FormField 
+                label="Time"
+                htmlFor="booking-time"
+                hasError={!isTimeValid()}
+                errorMessage={invalidTimeErrorMessage}
+                >
+                    <select
+                    id="booking-time"
+                    name="booking-time"
+                    value={time}
+                    required={true}
+                    onChange={handleTimeChange}>
+                        {availableTimes.map(times => 
+                        <option key={times}>
+                            {times}
+                        </option>
                         )}
                     </select>
-                </div>
+                </FormField>
+                <FormField
+                label="# of Guests"
+                htmlFor="number-of-guests"
+                hasError={!isNumGuestsValid()}
+                errorMessage={invalidNumGuestsErrorMessage}
+                >
+                    <input
+                    type="number"
+                    id="number-of-guests"
+                    name="number-of-guests"
+                    value={numGuests}
+                    min={minimumNumGuests}
+                    max={maximumNumGuests}
+                    required={true}
+                    onChange={e => setNumGuests(e.target.value)}
+                    />
+                </FormField>
+                <FormField
+                label="Special Occasion?"
+                htmlFor="booking-occasion"
+                >
+                <select
+                id="booking-occasion"
+                name="booking-occasion"
+                value={occasion}
+                required={true}
+                onChange={e => setOccasion(e.target.value)}
+                >
+                    {occasions.map(occasion => 
+                    <option key={occasion}>
+                        {occasion}
+                    </option>
+                    )}
+                </select>
+                </FormField>
                 <button type="submit" className="button-primary" 
-                // disabled={!getIsFormValid()}
-                >Submit</button>
-            </fieldset>
+                disabled={!getIsFormValid()}
+                >Make Your Reservation</button>
         </form>
-
-        {/* </div> */}
-        </section>
     )
 }
 
