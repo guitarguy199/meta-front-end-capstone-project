@@ -25,9 +25,10 @@ const Bookings = () => {
 
   const [availableTimes, dispatch] = useReducer(reducer, initializeTimes());
     return (
-        <>
+        <div className="bookings">
+            <h2>Reserve a Table</h2>
             <BookingForm availableTimes={availableTimes} dispatchOnDateChange={dispatch} />
-        </>
+        </div>
     )
 }
 
