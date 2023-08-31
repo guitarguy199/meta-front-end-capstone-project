@@ -1,5 +1,25 @@
 .booking-form {
     background: #495E57;
     color: #fff;
-    
+    padding: 2rem 0 2rem 0;
+}
+
+.bookings h2 {
+    text-align: center;
+}
+
+.bookings form {
+    margin: 0 auto 2rem auto;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+.form-field p {
+    color: red;
+    font-size: 0.8rem;
 }
