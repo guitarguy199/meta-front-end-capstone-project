@@ -1,13 +1,22 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-const BookingForm = ( { availableTimes }) => {
-    const defaultTime = availableTimes[0];
+const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
+    // const defaultTime = availableTimes[0];
     const [date, setDate] = useState('');
-    const [time, setTime] = useState(defaultTime);
+    const [time, setTime] = useState("12:00")
     const [numGuests, setNumGuests] = useState('');
     const [occasion, setOccasion] = useState('');
     const occasions = ["none", "birthday", "anniversary"];
+    const options = availableTimes.map(time => <option key={time}>{time}</option>)
+
+    const handleDateChange = (e) => {
+        setDate(e.target.value);
+        dispatchOnDateChange({ type: 'UPDATE TIMES', payload: e.target.value});
+    }
+
+    const handleTimeChange = e => setTime(e.target.value);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -23,9 +32,9 @@ const BookingForm = ( { availableTimes }) => {
         setOccasion('');
     }
 
-    const getIsFormValid = () => {
-        return date && time && numGuests !== '';
-    };
+    // const getIsFormValid = () => {
+    //     return date && availableTimes && numGuests !== '';
+    // };
 
     return(
         <section className="booking-form">
@@ -37,20 +46,17 @@ const BookingForm = ( { availableTimes }) => {
                     <label>Select Date<sup>*</sup></label>
                     <input
                         value={date}
-                        onChange={(e) => {
-                            setDate(e.target.value)
-                        }}
+                        onChange={handleDateChange}
                         placeholder="Date"
                     ></input>
                 </div>
                 <div className="Field">
                     <label>Select Time<sup>*</sup></label>
-                    <select value={time} onChange={(e) => {
-                        setTime(e.target.value) 
-                        }}>
-                        {availableTimes.map((time, index) => 
-                            <option value={time} key={index}>{time}</option>
-                        )}
+                    <select value={time} onChange={handleTimeChange}>
+                        {/* {availableTimes.map((time) => 
+                            <option key={time}>{time}</option>
+                        )} */}
+                        {options}
                     </select>
                 </div>
                 <div className="Field">
@@ -70,7 +76,9 @@ const BookingForm = ( { availableTimes }) => {
                         )}
                     </select>
                 </div>
-                <button type="submit" className="button-primary" disabled={!getIsFormValid()}>Submit</button>
+                <button type="submit" className="button-primary" 
+                // disabled={!getIsFormValid()}
+                >Submit</button>
             </fieldset>
         </form>
 
