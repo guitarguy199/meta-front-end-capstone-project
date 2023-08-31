@@ -4,20 +4,29 @@ import './index.css';
 
 const Bookings = () => {
 
-    const dates = ["12:30", "3:30", "5:00"]
 
-    const updateTimes = (date) => {
-        return date;
+    const updateTimes = () => {
+        return ["5:00", "5:30", "6:00", "6:30", "7:00", "7:30", "8:00"];
     }
 
-    const initializeTimes = dates;
+   const initializeTimes = () => {
+    return ["5:00", "5:30", "6:00", "6:30", "7:00", "7:30", "8:00"];
+   };
 
-    const [availableTimes, dispatch] = useReducer(updateTimes, initializeTimes);
+   function reducer(state, action) {
+    switch (action.type) {
+      case 'UPDATE_TIMES':
+        return updateTimes(action.payload);
+      default:
+        return state;
+    }
+  }
 
 
+  const [availableTimes, dispatch] = useReducer(reducer, initializeTimes());
     return (
         <>
-            <BookingForm availableTimes={availableTimes} setAvilableTimes={dispatch} />
+            <BookingForm availableTimes={availableTimes} dispatchOnDateChange={dispatch} />
         </>
     )
 }
