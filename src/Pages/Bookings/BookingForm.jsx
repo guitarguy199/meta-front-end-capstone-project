@@ -2,13 +2,13 @@
 import { useState } from "react";
 import FormField from "./FormField";
 
-const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
-    // const defaultTime = availableTimes[0];
+const BookingForm = ( { availableTimes, dispatchOnDateChange, submitData }) => {
+    const defaultTime = availableTimes[0];
     const minimumDate = new Date().toISOString().split('T')[0];
     const minimumNumGuests = 1;
     const maximumNumGuests = 16;
     const [date, setDate] = useState(minimumDate);
-    const [time, setTime] = useState("12:00")
+    const [time, setTime] = useState(defaultTime)
     const [numGuests, setNumGuests] = useState(minimumNumGuests);
     const [occasion, setOccasion] = useState('');
     const occasions = ["None", "Birthday", "Anniversary", "Date Night"];
@@ -23,7 +23,7 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
 
     const handleDateChange = (e) => {
         setDate(e.target.value);
-        dispatchOnDateChange({ type: 'UPDATE TIMES', payload: e.target.value});
+        dispatchOnDateChange(e.target.value);
     }
 
     const handleTimeChange = e => setTime(e.target.value);
@@ -31,17 +31,8 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        alert("Move to confirmation page");
-        console.log("Success!");
-        // clearForm();
+        submitData({ date, time, numGuests, occasion })
     }
-
-    // const clearForm = () => {
-    //     setDate('');
-    //     setTime('');
-    //     setNumGuests('');
-    //     setOccasion('');
-    // }
 
     const getIsFormValid = () => {
         return date && availableTimes && numGuests !== '';
@@ -61,7 +52,7 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
                         name="booking-date"
                         min={minimumDate}
                         value={date}
-                        required="true"
+                        required={true}
                         onChange={handleDateChange}
                     />
                 </FormField>
@@ -85,7 +76,7 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
                     </select>
                 </FormField>
                 <FormField
-                label="# of Guests"
+                label="Number of Guests"
                 htmlFor="number-of-guests"
                 hasError={!isNumGuestsValid()}
                 errorMessage={invalidNumGuestsErrorMessage}
@@ -121,7 +112,9 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange }) => {
                 </FormField>
                 <button type="submit" className="button-primary" 
                 disabled={!getIsFormValid()}
-                >Make Your Reservation</button>
+                >
+                Make Your Reservation
+                </button>
         </form>
     )
 }
