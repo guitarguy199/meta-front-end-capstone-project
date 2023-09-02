@@ -3,6 +3,7 @@ import greekSaladImage from './assets/greek salad.jpg';
 import bruschettaImage from './assets/bruchetta.svg';
 import lemonDessertImage from './assets/lemon dessert.jpg';
 import SpecialsCard from "./SpecialsCard";
+import { Link } from "react-router-dom";
 
 const Specials = () => {
 
@@ -31,7 +32,9 @@ const Specials = () => {
     <section className="grid container week-specials">
       <div className="menu-heading">
         <h2>This week specials!</h2>
-        <button className="button-primary">Online Menu</button>
+        <Link className="button-primary" to="/order-online">
+          Online Menu
+        </Link>
       </div>
         {specials.map((special, index) =>
             <SpecialsCard key={index} meals={special} />
