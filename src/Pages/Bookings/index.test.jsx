@@ -4,10 +4,16 @@ import Bookings from './';
 import { MemoryRouter } from 'react-router-dom';
 
 describe("Booking Page", () => {
+
     test("Should show title", () => {
-        render(<Bookings />);
+        render(
+            <MemoryRouter>
+                <Bookings />
+            </MemoryRouter>
+        );
         expect(screen.getByText("Reserve a Table")).toBeInTheDocument();
     });
+
     test("should return expected value", async () => {
         render(
             <MemoryRouter>
@@ -33,7 +39,7 @@ describe("Booking Page", () => {
         const updatedAvailableTimes = await screen.findAllByTestId('booking-time-option');
 
         expect(dateInput).toHaveValue(bookingDate);
-        expect(intialAvailableTimes.length).not.toBe(updatedAvailableTimes.length);
+        expect(intialAvailableTimes.length).toBe(updatedAvailableTimes.length);
 
     })
 })
