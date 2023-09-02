@@ -25,6 +25,12 @@
     font-size: 0.8rem;
 }
 
+.button-primary.submit:disabled {
+    background-color: #e0e0e0;
+    border: none;
+    color: white;
+}
+
 .confirmed-booking {
     display: flex;
     flex-direction: column;
