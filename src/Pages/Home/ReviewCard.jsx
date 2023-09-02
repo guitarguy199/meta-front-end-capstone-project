@@ -4,13 +4,11 @@ import './ReviewCard.css';
 const ReviewCard = ({ reviews }) => {
     return(
         <article className='review-card'>
-            <div className='leading-row'>
-                <h2>{reviews.review}</h2>
+            <div className='review-content'>
                 <img src={reviews.image} />
-                <p>{reviews.rating}</p>
-            </div>
-            <div className='trailing-row'>
                 <h3>{reviews.name}</h3>
+                <p>{reviews.rating}</p>
+                <p>{reviews.review}</p>
             </div>
         </article>
     )
