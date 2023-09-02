@@ -10,7 +10,7 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange, submitData }) => {
     const [date, setDate] = useState(minimumDate);
     const [time, setTime] = useState(defaultTime)
     const [numGuests, setNumGuests] = useState(minimumNumGuests);
-    const [occasion, setOccasion] = useState('');
+    const [occasion, setOccasion] = useState('None');
     const occasions = ["None", "Birthday", "Anniversary", "Date Night"];
 
     const invalidDateErrorMessage = 'Please choose a valid date';
@@ -103,14 +103,14 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange, submitData }) => {
                 required={true}
                 onChange={e => setOccasion(e.target.value)}
                 >
-                    {occasions.map(occasion => 
-                    <option key={occasion}>
+                    {occasions.map(occasion =>
+                    <option data-testid="occasion-option" key={occasion}>
                         {occasion}
                     </option>
                     )}
                 </select>
                 </FormField>
-                <button type="submit" className="button-primary" 
+                <button type="submit" className="button-primary submit" 
                 disabled={!getIsFormValid()}
                 >
                 Make Your Reservation
