@@ -1,7 +1,7 @@
 .week-specials {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto auto;
-    gap: 1.3rem
+    gap: 1.3rem;
 }
 
 .menu-heading  {
