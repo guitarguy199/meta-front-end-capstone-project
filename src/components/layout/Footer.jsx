@@ -25,7 +25,7 @@ const Footer = () => {
       <Link className="footer-logo" to={'/'}>
       <img src={Logo} alt="little lemon logo"></img>
       </Link>
-      <div className="footer-list footer-sitemap">
+      <nav className="footer-list footer-sitemap">
         <h4>Sitemap</h4>
         <ul>
         <li><Link to="/">Home</Link></li>
@@ -35,7 +35,7 @@ const Footer = () => {
         <li><Link to="/order-online">Order Online</Link></li>
         <li><Link to="/login">Login</Link></li>
         </ul>
-      </div>
+      </nav>
       <div className="footer-list footer-contact">
         <h4>Contact us</h4>
         <ul>

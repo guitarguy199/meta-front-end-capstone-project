@@ -31,8 +31,8 @@ const Specials = () => {
   return (
     <section className="grid container week-specials">
       <div className="menu-heading">
-        <h2>This week specials!</h2>
-        <Link className="button-primary" to="/order-online">
+        <h2>This week&apos;s specials!</h2>
+        <Link className="button-primary" aria-label="Online Menu" to="/order-online">
           Online Menu
         </Link>
       </div>

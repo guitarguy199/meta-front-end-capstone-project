@@ -15,7 +15,7 @@ const [isNavExpanded, setIsNavExpanded] = useState(false);
     <Link className="navbar-logo" to={"/"}>
     <img src={Logo} alt="Little Lemon Logo" />
     </Link>
-    <button className="navbar-hamburger" type="button" onClick={() => setIsNavExpanded(!isNavExpanded)}>
+    <button className="navbar-hamburger" aria-label="menu" type="button" onClick={() => setIsNavExpanded(!isNavExpanded)}>
       {isNavExpanded ? 
       <FontAwesomeIcon icon={faXmark} size="2x" /> :
       <FontAwesomeIcon icon={faBars} size="2x" />
@@ -42,7 +42,7 @@ function CustomLink({ to, children, ...props }) {
   const isActive = useMatch({ path: resolvedPath.pathname, end: true})
   return (
     <li className={isActive ? "active" : "" }>
-      <Link to={to} {...props}>
+      <Link to={to} aria-label={children} {...props}>
         {children}
       </Link>
     </li>

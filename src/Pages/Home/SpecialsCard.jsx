@@ -8,7 +8,7 @@ const SpecialsCard = ({ meals }) => {
     return (
         <article className="specials-card">
         <div className="specials-img">
-            <img src={meals.image}></img>
+            <img src={meals.image} alt={meals.name}></img>
         </div>
         <div className="specials-card-heading">
         <h3>{meals.name}</h3>
@@ -16,7 +16,7 @@ const SpecialsCard = ({ meals }) => {
         </div>
         <div className="specials-footer">
         <p>{meals.description}</p>
-        <Link to={"/order-online"}>Order Delivery <FontAwesomeIcon icon={faMotorcycle} /></Link>
+        <Link to={"/order-online"} aria-label="Order Delivery">Order Delivery <FontAwesomeIcon icon={faMotorcycle} aria-hidden="true" /></Link>
         </div>
         </article>
     );

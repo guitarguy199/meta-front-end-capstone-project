@@ -110,7 +110,10 @@ const BookingForm = ( { availableTimes, dispatchOnDateChange, submitData }) => {
                     )}
                 </select>
                 </FormField>
-                <button type="submit" className="button-primary submit" 
+                <button 
+                type="submit" 
+                aria-label="Make Your Reservation"
+                className="button-primary submit" 
                 disabled={!getIsFormValid()}
                 >
                 Make Your Reservation
