@@ -39,7 +39,7 @@ describe("Booking Page", () => {
         const updatedAvailableTimes = await screen.findAllByTestId('booking-time-option');
 
         expect(dateInput).toHaveValue(bookingDate);
-        expect(intialAvailableTimes.length).toBe(updatedAvailableTimes.length);
+        expect(intialAvailableTimes.length).not.toBe(updatedAvailableTimes.length);
 
     })
 })
