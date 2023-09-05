@@ -1,35 +1,29 @@
 .review-card {
-    display: grid;
+    grid-column: auto;
+    grid-row: 2;
+    min-height: 23rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
     background: #fff;
-    min-height: 29rem;
-    margin-bottom: 2.5rem;
-    justify-content: center;
     text-align: center;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 4;
-    border-radius: 2rem;
 }
 
-.review-content {
-margin: 2rem;
-}
-
-.review-content img {
-    width: 9rem;
-    height: 9rem;
+.review-card img {
+    width: 8rem;
     margin: 0 auto 0.5rem auto;
     border-radius: 50%;
-    padding-top: 0.675rem;
 }
 
-.review-content h3 {
+.review-card h3 {
     color: #395E57;
     font-size: 1.5rem;
     margin-bottom: .5rem;
 }
 
-.review-content p {
+.review-card p {
     padding-top: 1rem;
 }
 
@@ -37,5 +31,7 @@ margin: 2rem;
     .review-card {
         grid-column: auto;
         grid-row: auto;
+        margin-bottom: 2rem;
+        min-height: 12rem;
     }
 }

@@ -37,7 +37,7 @@ const Reviews = () => {
 
     return(
         <section className='reviews-section'>
-        <div className='grid container'>
+        <div className='container grid'>
                 <h2>The Reviews Are In!</h2>
                 {userReviews.map((review, index) =>
                 <ReviewCard key={index} reviews={review}/>
